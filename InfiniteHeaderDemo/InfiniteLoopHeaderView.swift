@@ -296,7 +296,6 @@ extension InfiniteLoopHeaderView: UIScrollViewDelegate {
         guard scrollNormalizedPosition != 0 else {
             return
         }
-
         // コンテンツの中央位置を取得
         let scrollViewCenter = scrollView.superview!.convert(scrollView.center, to: contentView)
 
@@ -338,7 +337,7 @@ extension InfiniteLoopHeaderView: UIScrollViewDelegate {
             scrollNormalizedPosition = scrollNormalizedPosition + -plainPosition + (elementCount - visibleColumnNumber)
             centerXConstraint.constant = CGFloat(-scrollNormalizedPosition) * scrollView.bounds.width
         } else if plainPosition >= rightSafeArea {
-            // ヘッダー右の安全領域を超えていた場合はscrollNormalizedPosition に位置を格納し の位置をずらす
+            // ヘッダー右の安全領域を超えていた場合はscrollNormalizedPosition に位置を格納しcontentView の位置をずらす
             scrollNormalizedPosition = scrollNormalizedPosition + -plainPosition
             centerXConstraint.constant = CGFloat(-scrollNormalizedPosition) * scrollView.bounds.width
         } else {
